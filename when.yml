@@ -1,0 +1,17 @@
+---
+
+
+ - name: this play book will test when condtion!
+   hosts: webservers
+   gather_facts: True
+
+   tasks:
+     - name: hello 
+       command: cat /etc/hosts
+       register: content_hosts
+
+     - name: print 
+       debug: 
+         var: content_hosts
+       when: content_hosts.rc == 1
+

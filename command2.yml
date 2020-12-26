@@ -1,0 +1,32 @@
+
+
+---
+ - name: this is some more practice for command
+   hosts: localhost
+   vars:
+     myname: atal
+
+
+
+   tasks:
+     - name: printing abobe variable
+       debug:
+         var: myname
+        
+     - name: capture the value of etc hosts
+       command: cat /etc/hosts
+       register: content_hosts
+        
+     - name: pring content of hosts
+       debug:
+         var: content_hosts
+
+     - name: pring content hosts
+       debug:
+         var: content_hosts.rc
+
+     - name: to check if the command run succesfful
+       file:
+         path: /opt/ansible-code/mycode/sucess.txt
+         state: touch
+       when: content_hosts.rc == 0

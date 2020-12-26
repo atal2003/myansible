@@ -1,0 +1,50 @@
+---
+
+ - name: this is practice with with_times
+   hosts: webservers
+   gather_facts: True
+   vars:
+     motd_value: "{{ lookup('f', '/etc/motd') }}"
+   become: yes
+
+   tasks: 
+     - name: install multiple packages
+       apt: name={{ item }} state=present
+       with_items:
+           - pip
+           - wget
+           - curl
+       when: ansible_distribution == "ubuntu"
+   
+           
+    
+   
+     - name: to install multiple packages      
+       yum: name={{ item }} state=present
+       with_items:
+           - pip
+           - wget
+           - curl
+       when: ansible_distribution == "RedHad"
+
+
+     - name: creating motd file
+       file: path="/etc/motd" state=touch
+
+ 
+     - name: using command module
+       command: echo "this is a message for everyone" | tee /etc/motd
+       register: content_of_motd
+
+
+     - name: to print the content of motd
+       debug:
+         var: content_of_motd
+       
+      
+         
+        
+
+
+
+ 

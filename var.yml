@@ -1,0 +1,12 @@
+---
+
+
+ - name: this practice for variable
+   hosts: localhost
+
+
+   tasks:
+     - name: to install package
+       apt: name={{value}} state=present
+       vars:
+         value: unzip

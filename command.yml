@@ -1,0 +1,12 @@
+
+---
+
+ - name: practice with command module
+   hosts: localhost
+
+
+   tasks:
+     - name: creating a foler  using comman
+       command: mkdir -p /var/atal
+       args:
+         chdir: /var

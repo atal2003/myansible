@@ -1,0 +1,17 @@
+---
+
+
+ - name: this will define variable and use them
+   hosts: webservers
+   vars:
+     myfile: test1.txt 
+
+
+
+   tasks:
+     - name: copyting file
+       copy: src=/opt/{{ myfile }} dest=/opt/
+
+
+
+

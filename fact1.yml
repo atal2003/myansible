@@ -1,0 +1,30 @@
+---
+
+
+ - name: pring builtin variables
+   hosts: webservers
+   gather_facts: True
+
+
+
+   tasks:
+     - name: printing fact ansible_hostname
+       debug:
+         var: ansible_hostname
+ 
+  
+     - name: printing fact ansible_distribution
+       debug:
+         var: ansible_distribution
+  
+     - name: printing fact ansibl_default_ipv4.macaddress
+       debug:
+         var: ansible_default_ipv4.macaddress
+  
+     - name: printing fact ansible_architecture
+       debug:
+         var: ansible_architecture
+  
+     - name: printing fact ansible_memtotal_mb
+       debug:
+         var: ansible_memtotal_mb

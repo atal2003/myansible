@@ -1,0 +1,29 @@
+---
+
+ - name: this is a practie for loop 
+   hosts: webservers
+   vars:
+     to_install: ['httpd', 'apache2', 'nginux', 'utils']
+   
+
+   tasks: 
+     - name: creating file
+       yum:
+         name: "{{ item }}"
+         state: present 
+       ignore_errors: yes     
+
+       loop: "{{ to_install }}"
+   
+       
+    tasks: 
+     - name: creating file
+       file:
+         path: /var/{{ item }}
+         state: touch 
+       ignore_errors: yes     
+
+       loop: 
+         - test.txt
+         - test1.txt
+         - test2.txt

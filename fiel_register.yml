@@ -1,0 +1,22 @@
+---
+
+# the complete information about stat is in the ansible online doc. which can check for all 
+# of attribute like pw_name islnk isdir ........
+
+
+ - name: this will check if state working
+   hosts: localhost
+
+
+   tasks: 
+     - name: checking the state
+       stat:
+         path: /opt/inventory.txt
+       register: file_invet
+
+     - name: checking the state
+       debug:
+         var: file_invet
+       
+
+

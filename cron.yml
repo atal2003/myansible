@@ -1,0 +1,18 @@
+---
+
+ - name: to run a script using cron
+   hosts: localhost
+   vars: 
+     myfile: /opt/backup.sh
+
+
+   tasks:
+     - name: scedule cron job
+       cron:
+         hour: "5"
+         minute: "30"
+         job: "{{ myfile }}"
+         state: present
+
+
+

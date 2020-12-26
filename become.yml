@@ -1,0 +1,21 @@
+ 
+
+---
+
+
+ - name: this is test if can change the user
+   hosts: localhost
+   become_user: salim
+
+
+   tasks: 
+     - name: create a file
+       file: path=/opt/ansible-code/mycode/atal.txt state=touch
+
+
+
+     - name: to create a directory
+       file: path=/opt/ansible-code/mycode/me state=directory
+
+        
+   

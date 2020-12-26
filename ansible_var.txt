@@ -1,0 +1,16 @@
+---
+       when: ansible_architecture == "x86_64"
+
+       when: ( ansible_distribution == "RedHat" or ansible_architecture == "x86_64" )
+
+       when: ( ansible_distribution == "RedHat" and ansible_architecture == "x86_64" )
+
+       when: 
+         - ansible_processor_cores >= 1
+         - ansible_distribution == "Ubuntu"
+
+invntory_hostname_short
+debug to write the variable
+msg={{.....}}
+debug:
+  var: ......

@@ -1,0 +1,15 @@
+---
+
+- name: this is practic for var prompt
+  hosts: localhost
+  vars_prompt:
+          - name: "version"
+            prompt: "which version will you intall" 
+
+
+            
+
+  tasks:
+    - name: prompt example
+      debug:
+        msg: "version"      
